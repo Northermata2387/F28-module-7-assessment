@@ -1,0 +1,29 @@
+Step 1: part 2
+
+Results for the extraLargeArray
+insert 965.4821 ms
+append 3.2582 ms
+
+Step 1: part 3
+
+Results for the tinyArray       insert 37.2 μs              append 91.5 μs      
+Results for the smallArray      insert 47.7 μs        28%   append 94.4 μs        3%
+Results for the mediumArray     insert 178.7 μs      174%   append 137.9 μs     145%
+Results for the largeArray      insert 8.2677 ms    4626%   append 545.6 μs     577%
+Results for the extraLargeArray insert 965.4821 ms 11677%   append 3.2582 ms    597%
+
+Step 1: part 4
+
+From veiwing the scaling in the above table it appears the append scales more efficiently. This is indicated by when the functions move from us to ms, the overall difference in the final time difference in the extraLargeArray execution, and the time percentage difference from one array to the next in size. 
+
+Step 1: part 5
+
+"Unshift is slower than push because it also needs to unshift all the elements to the left once the first element is added."
+
+Difference between push() and unshift() methods in javascript
+https://www.tutorialspoint.com/
+
+
+
+
+
