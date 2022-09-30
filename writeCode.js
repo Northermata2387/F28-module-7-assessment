@@ -1,45 +1,42 @@
 
 // Part 2: 1) Sum Zero
 
-function sumFinder(arr, num) {
-    let obj = {}
-    let diff
-  
-    for (let i = 0; i < arr.length; i++) {
-      diff = num - arr[i]
-  
-      if (obj[diff]) {
+function sumZero(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++){
+      if (arr[i] + arr[j] === 0){
         return true
-      } else {
-        obj[arr[i]] = true
-      }
+      } 
     }
-    return false
   }
+  return false
+}
   
- console.log(sumFinder([1, 2, 3, -2], 0)); // returns true
- console.log(sumFinder([1, 2, 3, 4], 0)); // returns False
+ console.log(sumZero([0])); // returns false
+ console.log(sumZero([1])); // returns false
+ console.log(sumZero([1, 2, 3])); // returns false
+ console.log(sumZero([1, 2, 3, -2])); // returns true
 
-// Runtime could be O(n)
+// Runtime: O(n^2)
 
 
 
 // Part 2: 2) Unique Characters
 
 function singleWord(list) {
-    var obj = {};
-    for (var i = 0; i < list.length; ++i) {
-      var ch = list[i];
+    let obj = {};
+    for (let i = 0; i < list.length; ++i) {
+      let ch = list[i];
       if (obj[ch]) return false;
       obj[ch] = true;
     }
     return true;
   }
 
-console.log(singleWord("Monday")); // true
-console.log(singleWord("Moonday")); // false
+console.log(singleWord("Monday")); // returns true
+console.log(singleWord("Moonday")); // returns false
 
-// Runtime could be O(n)
+// Runtime: O(n)
 
 
 
@@ -59,30 +56,33 @@ function pangrams(s) {
    return "pangram";
  }
 
-console.log(pangrams("The quick brown fox jumps over the lazy dog!")); // true
-console.log(pangrams("I like cats, but not mice")); // false
+console.log(pangrams("The quick brown fox jumps over the lazy dog!")); // returns true
+console.log(pangrams("I like cats, but not mice")); // returns false
 
-// Runtime could be O(n)
+// Runtime: O(n)
 
 
 
 // Part 2: 4) Longest Word
 
-// function findLongestWord(str) {
-    function findLongestWord(str) {
-        var longestWord = str.split(' ').reduce(function(longest, currentWord) {
-          return currentWord.length > longest.length ? currentWord : longest;
-        }, "");
-        return longestWord.length;
+const findLongestWord = (arr) => {
+  let longestLength = 0
+
+  arr.forEach((word) => {
+      if(word.length > longestLength){
+          longestLength = word.length
       }
+  })
+  return longestLength
+}
 
-console.log(findLongestWord("The quick brown fox jumped over the lazy dog"));
+console.log(findLongestWord(["hi", "hello"])); // returns 5
 
-// Runtime could be O(n)
+// Runtime: O(n)
 
 
 
-// Extra credit
+// Extra Credit
 
 // Space complexity options
 // Constant Space O(1)
